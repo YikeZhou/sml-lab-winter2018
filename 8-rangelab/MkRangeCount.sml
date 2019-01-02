@@ -41,10 +41,10 @@ struct
                  | NONE => (case OrdTable.previous T xRght
                               of (SOME (k', v)) => v
                                | (NONE) => OrdTable.empty())
-      val mid = OrdTable.erase (r, Set.fromSeq (range l))
-      val ans = OrdTable.getRange mid (yLo, yHi)
+      val countL = OrdTable.size (OrdTable.getRange l (yLo, yHi))
+      val countR = OrdTable.size (OrdTable.getRange r (yLo, yHi))
     in
-      OrdTable.size ans
+      (countR - countL)
     end
         
 end
